@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: aria-developer-api
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: PORT
+        value: 8787
+      - key: PROVIDER_MODE
+        value: ""
+      - key: CORS_ORIGINS
+        value: "*"
+      # --- set these in the Render dashboard (never commit secrets) ---
+      - key: FIREBASE_SERVICE_ACCOUNT_JSON
+        sync: false
+      - key: ADMIN_SECRET
+        generateValue: true
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: DEEPSEEK_API_KEY
+        sync: false
+      - key: MISTRAL_API_KEY
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
